@@ -1,0 +1,33 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+*{
+  font-family: "Outfit", sans-serif;
+}
+
+::-webkit-scrollbar{
+   display: none; 
+} */
+
+
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* Import Tailwind CSS */
+@import "tailwindcss";
+
+/* Apply global font */
+* {
+  font-family: "Outfit", sans-serif;
+}
+
+/* Hide scrollbar (only for webkit browsers) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Optional: prevent scrollbars from reserving layout space */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+}
