@@ -1,17 +1,27 @@
-// export function formatMessageTime(date){
-//     return new Date(date).toLocaleDateString("en-US",{
-//         hour: "2-digit",
-//         minute: "2-digit",
-//         hour12: false,
-//     })
-// }
-
-
-
 export function formatMessageTime(date) {
-  return new Date(date).toLocaleTimeString("en-US", {
+  const messageDate = new Date(date);
+  const now = new Date();
+
+  const isToday = messageDate.toDateString() === now.toDateString();
+
+  const yesterday = new Date();
+  yesterday.setDate(now.getDate() - 1);
+  const isYesterday = messageDate.toDateString() === yesterday.toDateString();
+
+  const time = messageDate.toLocaleTimeString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
-    hour12: false, // Use true for 12-hour format (AM/PM)
+    hour12: true,
   });
+
+  if (isToday) return `Today, ${time}`;
+  if (isYesterday) return `Yesterday, ${time}`;
+
+  const dateString = messageDate.toLocaleDateString("en-US", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+
+  return `${dateString}, ${time}`;
 }
